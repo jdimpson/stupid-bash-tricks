@@ -1,0 +1,11 @@
+#!/bin/sh
+
+exec 8<"$0"; # Open filehandle 8 on an arbitrary file -- $0 is the script name, which is convenient in this case
+
+flock -x 8;
+# critical section is here
+echo "I'm in ($$)";
+sleep 20;
+echo "I'm done ($$)";
+flock -u 8; # explicitly unlock, or you can close the file handle, or exit the program.
+# end of critical section

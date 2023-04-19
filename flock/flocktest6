@@ -1,0 +1,14 @@
+#!/bin/bash
+
+N=1000;
+eval "exec $N<\"$0\""; # please don't forget to make this a read!
+
+if flock -n -x $N; then
+	echo "I'm in ($0 $N $$)";
+	#read -u $N X
+	#echo $X
+	sleep 20;
+	echo "I'm done ($0 $N $$)";
+else 
+	echo "I'm rejected ($0 $N $$)";
+fi

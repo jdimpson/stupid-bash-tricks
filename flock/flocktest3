@@ -1,0 +1,14 @@
+#!/bin/sh
+
+ME=`basename "$0"`;
+LCK="/tmp/$ME.LCK";
+
+echo "Locking on $LCK";
+
+( if flock -n -e 8; then
+	echo "I'm in ($$)";
+	sleep 10;
+else
+	echo "fooey";
+fi;
+) 8> $LCK

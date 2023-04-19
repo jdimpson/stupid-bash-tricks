@@ -1,0 +1,8 @@
+#!/bin/sh
+
+ME=`basename "$0"`;
+
+( flock -e 8;
+echo "I'm in ($$)";
+sleep 20;
+) 8> /tmp/$ME.LCK

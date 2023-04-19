@@ -1,0 +1,12 @@
+#!/bin/sh
+
+exec 8<"$0"; # please don't forget to make this a read!
+
+if flock -n -x 8; then
+	echo "I'm in ($$)";
+	sleep 20;
+	echo "I'm done ($$)";
+	flock -u 8;
+else 
+	echo "I'm rejected ($$)";
+fi

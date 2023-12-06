@@ -3,7 +3,7 @@
 
 If you've ever read an Operating Systems textbook, like those used in Computer Science / Engineering courses, you might remember that you can use file locking as a [mutex](https://en.m.wikipedia.org/wiki/Semaphore_(programming)#Semaphores_vs._mutexes) (or binary semaphore) for the purpose of process [synchronization](https://en.m.wikipedia.org/wiki/Synchronization_(computer_science)#Thread_or_process_synchronization). 
 
-In fact, many of the tools/mechanisms used to achieve synchronization can be used to implement the others; therefore implementations of OSes or VMs may only implement one "natively", then use it to build the others. In that spirit, I used [flock(2)](https://linux.die.net/man/2/flock) to synchronize [bash](https://linux.die.net/man/1/bash) shell scripts. 
+In fact, many of the tools/mechanisms used to achieve synchronization can be used to implement the others; therefore implementations of OSes or VMs may only implement one "natively", then use it to build the others. In that spirit, I used [flock(2)](https://linux.die.net/man/2/flock) primitive to provide process synchronization to [bash](https://linux.die.net/man/1/bash) shell scripts. 
 
 flocktest0 -- 
 
